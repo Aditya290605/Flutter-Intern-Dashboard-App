@@ -1,4 +1,11 @@
 // Bloc
+import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intern_dash_board/bloc/dash_board/dash_board_event.dart';
+import 'package:intern_dash_board/bloc/dash_board/dash_board_state.dart';
+import 'package:intern_dash_board/data/mock_data.dart';
+import 'package:intern_dash_board/models/user.dart';
+
 class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   DashboardBloc() : super(DashboardInitial()) {
     on<DashboardLoadRequested>(_onDashboardLoadRequested);
@@ -27,7 +34,9 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     // Simulate API call delay
     await Future.delayed(const Duration(milliseconds: 500));
 
-    emit(const LeaderboardLoaded(entries: MockData.leaderboard));
+    emit(
+      const LeaderboardLoaded(entries: MockData.leaderboard) as DashboardState,
+    );
   }
 
   Future<void> _onAnnouncementsLoadRequested(
@@ -39,7 +48,10 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     // Simulate API call delay
     await Future.delayed(const Duration(milliseconds: 500));
 
-    emit(AnnouncementsLoaded(announcements: MockData.announcements));
+    emit(
+      AnnouncementsLoaded(announcements: MockData.announcements)
+          as DashboardState,
+    );
   }
 }
 
