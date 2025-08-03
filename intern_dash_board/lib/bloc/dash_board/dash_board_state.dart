@@ -1,4 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intern_dash_board/bloc/dash_board/dash_board_bloc.dart';
+import 'package:intern_dash_board/models/user.dart';
 
 class LeaderboardLoaded extends DashboardState {
   final List<LeaderboardEntry> entries;

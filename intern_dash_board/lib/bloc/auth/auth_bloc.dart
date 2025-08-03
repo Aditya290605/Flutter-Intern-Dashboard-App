@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:equatable/equatable.dart';
-import '../models/user.dart';
-import '../data/mock_data.dart';
+
+import 'package:intern_dash_board/bloc/auth/auth_events.dart';
+import 'package:intern_dash_board/bloc/auth/auth_state.dart';
+import 'package:intern_dash_board/data/mock_data.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
